@@ -22,6 +22,16 @@ class Weather
         $this->key = $key;
     }
 
+    public function getLiveWeather($city, $format = 'json')
+    {
+        return $this->getWeather($city, 'base', $format);
+    }
+
+    public function getForecastsWeather($city, $format = 'json')
+    {
+        return $this->getWeather($city, 'all', $format);
+    }
+
     /**
      * @param $city
      * @param string $type
@@ -39,8 +49,8 @@ class Weather
         if (!in_array(strtolower($format), ['xml', 'json'])){
             throw new InvalidArgumentException('Invalid response format: '.$format);
         }
-        if (!in_array(strtolower($type), ['base', 'all'])){
-            throw new InvalidArgumentException('Invalid response format: '.$type);
+        if (!\in_array(strtolower($format), ['base', 'type'])) {
+            throw new InvalidArgumentException('Invalid type value(live/forecast): '.$type);
         }
 
         // 2. 封装 query 参数，并对空值进行过滤。
