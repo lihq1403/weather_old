@@ -1,0 +1,29 @@
+{
+    "name": "lihq1403/weather",
+    "description": "a weather sdk",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "lihq1403",
+            "email": "lihaiqing1994@163.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Lihq1403\\Weather\\": "./src/"
+        }
+    },
+    "require": {
+        "php": ">=7.2.0",
+        "guzzlehttp/guzzle": "^6.3",
+        "phpunit/phpunit": "^7.2",
+        "mockery/mockery": "^1.1"
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Lihq1403\\Weather\\ServiceProvider"
+            ]
+        }
+    }
+}
